@@ -28,8 +28,8 @@ body {
     width: 160px;
     height: 210px;
 }
-.clock .clock_min, .mn {
-    width: 5px;
+.clock .clock_min, .min {
+    width: 190px;
     height: 290px;
 }
 .clock .clock_sec, .sec {
@@ -37,7 +37,7 @@ body {
     height: 320px;
 }
 
-.hr, .mn, .sec {
+.hr, .min, .sec {
     display: flex;
     justify-content: center;
     position: absolute;
