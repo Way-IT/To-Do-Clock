@@ -8,8 +8,29 @@
             
     </head>
     <body>
+        <div class="form">
+            <label for="from" name="start" >
+                С: <input id="from" type="time">
+            </label>
+            <label for="to">
+                По: <input id="to" type="time">
+            </label>
+            <label for="color">
+                Цвет: <input id="color" type="color">
+            </label>
+            <label class="butt" for="but">
+                <input id="but" type="button" value="Применить">
+            </label>
+        </div>
         <main>
+            
             <div class="clock">
+                <div class="obol">
+                    <svg class="progress-ring" width="550" height="550">
+                        <circle class="progress-ring__circle" cx="264" cy="264" r="260"></circle>
+                      </svg>
+                      
+                </div>
                 <div class="clock_hour">
                     <div class="hr" id="hr"></div>
                 </div>
