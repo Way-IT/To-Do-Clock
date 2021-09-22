@@ -83,10 +83,8 @@ position: relative;
 display: flex;
 justify-content: center;
 align-items: center;
-left: 11px;
-top: -11px;
-
 }
+
 
 .progress-ring__circle {
     stroke-width: 7;
@@ -116,5 +114,5 @@ top: -11px;
   }
 
   #but {
-      padding: 5px 10px;
+      padding: 5px 15px;
   }

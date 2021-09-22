@@ -1,12 +1,35 @@
 const deg = 6;
 const hr = document.querySelector('#hr');
-const mn = document.querySelector('#min')
+const mn = document.querySelector('#min');
 const sc = document.querySelector('#sec');
+const from = document.querySelector('#from');
+const to = document.querySelector('#to');
+const color = document.querySelector('#color');
+const butt = document.querySelector('#butt')
+const circle = document.querySelector('.progress-ring__circle');
+const radius = circle.r.baseVal.value;
+const okr = 2 * Math.PI * radius;
+circle.style.strokeDasharray = `${okr} ${okr}`;
+circle.style.strokeDashoffset = okr;
+butt.addEventListener('click', () => {
+    let a = from.value.split(':');
+    let b = to.value.split(':');
+    let c = color.value
+    let hour = Math.abs(a[0] - b[0]);
+    let minuts = Math.abs(a[1] - b[1]);
+    console.log(okr, c, minuts);
+    let rez = izm(hour, minuts)
+    console.log(rez)
+    circle.style.strokeDashoffset = rez;
+    circle.color = c
+})
 
 
 
-
-
+function percentCircle(persent) {
+    const offset = okr - persent / 100 * okr;
+  circle.style.strokeDashoffset = offset;
+}
 
 setInterval(() => {
     let day = new Date();
@@ -16,4 +39,22 @@ setInterval(() => {
     hr.style.transform = `rotateZ(${(hh) + (mm/12)}deg)`;
     min.style.transform = `rotateZ(${mm}deg)`;
     sc.style.transform = `rotateZ(${ss}deg)`
-} )
+} );
+
+function izm (h, m) {
+    if(h <= 12) {
+        let deg = h* 143.41;
+        deg = deg + (m * 2.39)
+        return deg;
+    } else { 
+        let deg = (h - 12)* 143.41;
+        deg = deg + (m * 2.39)
+        return deg;
+    }
+}
+
+function corner(h) {
+    if (h <= 12) {
+        return h * 30
+    }
+}
