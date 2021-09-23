@@ -11,12 +11,14 @@ const radius = circle.r.baseVal.value;
 const okr = 2 * Math.PI * radius;
 circle.style.strokeDasharray = `${okr} ${okr}`;
 circle.style.strokeDashoffset = okr;
+
+
 butt.addEventListener('click', () => {
     let a = from.value.split(':');
     let b = to.value.split(':');
     let c = color.value
     let hour = Math.abs(a[0] - b[0]);
-    let minuts = Math.abs(a[1] - b[1]);
+    let minuts = forMinuts(a[1],b[1])
     console.log(okr, c, minuts, a, circle.style.transform);
     let rez = izm(hour, minuts)
     console.log(rez)
@@ -62,3 +64,13 @@ function corner(h,m) {
         return (h - 12) * 30 + (m * 0.5)
     }
 }
+
+
+function forMinuts (a,b) {
+    if (a > b) {
+        return -(Math.abs(a - b))
+    } else {
+        return Math.abs(a - b)
+    }
+}
+
