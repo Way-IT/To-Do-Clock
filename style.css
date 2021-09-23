@@ -87,13 +87,12 @@ align-items: center;
 
 
 .progress-ring__circle {
-    stroke-width: 7;
+    stroke-width: 10;
     stroke: #0de906;
     fill: none;
     transform-origin: center;
-    
-    
   }
+    
   .form {
       width: 400px;
       height: 120px;

@@ -45,12 +45,12 @@ function start() {
 
 function izm (h, m) {
     if(h <= 12) {
-        let deg = h* 143.41;
-        deg = deg + (m * 2.39)
+        let deg = h* 128.28;
+        deg = deg + (m * 2.138)
         return deg;
     } else { 
-        let deg = (h - 12)* 143.41;
-        deg = deg + (m * 2.39)
+        let deg = (h - 12)* 128.28;
+        deg = deg + (m * 2.138)
         return deg;
     }
 }
