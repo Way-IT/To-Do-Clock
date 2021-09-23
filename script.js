@@ -17,19 +17,16 @@ butt.addEventListener('click', () => {
     let c = color.value
     let hour = Math.abs(a[0] - b[0]);
     let minuts = Math.abs(a[1] - b[1]);
-    console.log(okr, c, minuts);
+    console.log(okr, c, minuts, a, circle.style.transform);
     let rez = izm(hour, minuts)
     console.log(rez)
-    circle.style.strokeDashoffset = rez;
-    circle.color = c
+    let d = corner(a[0],a[1])
+    circle.style.transform = `rotate(${-90 + d}deg)`
+    console.log(d)
+    circle.style.strokeDashoffset = (okr - rez);
+    circle.style.stroke = c
 })
 
-
-
-function percentCircle(persent) {
-    const offset = okr - persent / 100 * okr;
-  circle.style.strokeDashoffset = offset;
-}
 
 setInterval(() => {
     let day = new Date();
@@ -53,8 +50,12 @@ function izm (h, m) {
     }
 }
 
-function corner(h) {
-    if (h <= 12) {
-        return h * 30
+function corner(h,m) {
+    if (h <= 11) {
+        return (h * 30) + (m * 0.5)
+    } else if (h == 12 || h == 0) {
+        return (m * 0.5) 
+    } else {
+        return (h - 12) * 30 + (m * 0.5)
     }
 }
