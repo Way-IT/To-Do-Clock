@@ -5,7 +5,7 @@ const sc = document.querySelector('#sec');
 const from = document.querySelector('#from');
 const to = document.querySelector('#to');
 const color = document.querySelector('#color');
-const butt = document.querySelector('#butt')
+const butt = document.querySelector('#btn')
 const circle = document.querySelector('.progress-ring__circle');
 const radius = circle.r.baseVal.value;
 const okr = 2 * Math.PI * radius;
@@ -45,12 +45,12 @@ function start() {
 
 function izm (h, m) {
     if(h <= 12) {
-        let deg = h* 128.28;
-        deg = deg + (m * 2.138)
+        let deg = h* (okr / 12);
+        deg = deg + (m * (okr / 12) / 60)
         return deg;
     } else { 
-        let deg = (h - 12)* 128.28;
-        deg = deg + (m * 2.138)
+        let deg = (h - 12)* (okr / 12);
+        deg = deg + (m * (okr / 12) / 60)
         return deg;
     }
 }

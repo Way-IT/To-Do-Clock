@@ -13,11 +13,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(newTime.png) 50% no-repeat;
+    background: url(kisspng-wall-clocks-geared-clock-pendulum-clock-clock-face-5c0add2cf40241.2012121415442158529995\ \(1\).png) 50% no-repeat;
     background-size: cover;
     border-radius: 50%;
     z-index: 4;
-    background-color: white;
+    background-color:lightslategray;
+    ;
 }
 
 .clock .clock_hour,
@@ -94,13 +95,15 @@ align-items: center;
   }
     
   .form {
-      width: 400px;
+      width: 350px;
       height: 120px;
       display: flex;
       flex-wrap: wrap;
       margin-right: 50px;
       margin-bottom: 700px;
       margin-left: -500px;
+      position: relative;
+      justify-content: space-between;
   }
 
   input {
@@ -114,4 +117,13 @@ align-items: center;
 
   #but {
       padding: 5px 15px;
+  }
+
+  .form p {
+      position: absolute;
+      left: 250px;
+      top: -13px;
+  }
+  .form .to {
+      margin-left: -20px;
   }
