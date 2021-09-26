@@ -9,6 +9,8 @@ const butt = document.querySelector('#btn')
 const circle = document.querySelector('.progress-ring__circle');
 const radius = circle.r.baseVal.value;
 const okr = 2 * Math.PI * radius;
+const btnNameTask = document.querySelector('#btnnametask')
+const desk = document.querySelector('.list-desk_body')
 circle.style.strokeDasharray = `${okr} ${okr}`;
 circle.style.strokeDashoffset = okr;
 
@@ -17,6 +19,8 @@ butt.addEventListener('click', () => {
     let a = from.value.split(':');
     let b = to.value.split(':');
     let c = color.value
+    let valueDesk = btnNameTask.value
+    console.log(valueDesk)
     let hour = Math.abs(a[0] - b[0]);
     let minuts = forMinuts(a[1],b[1])
     console.log(okr, c, minuts, a, circle.style.transform);
@@ -27,6 +31,7 @@ butt.addEventListener('click', () => {
     console.log(d)
     circle.style.strokeDashoffset = (okr - rez);
     circle.style.stroke = c
+    createEl(c, valueDesk,from.value,to.value)
 })
 
 function start() {
@@ -74,3 +79,24 @@ function forMinuts (a,b) {
     }
 }
 
+circle.addEventListener('mouseover', ()=> {
+    desk.classList.remove('hide')
+})
+
+circle.addEventListener('mouseleave', ()=> {
+    desk.classList.add('hide')
+})
+
+function createEl(color, name, from, to) {
+    const newTask = document.createElement('div');
+    newTask.classList.add('list-desk_body__item')
+    newTask.style.border = `3px solid ${color}`;
+    newTask.style.color = color
+    newTask.innerHTML = `${from} - ${to}`
+    desk.append(newTask)
+    const p = document.createElement('p')
+    p.classList.add('name-task')
+    p.innerHTML = name
+    newTask.prepend(p)
+    
+}
