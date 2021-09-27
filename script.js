@@ -31,7 +31,7 @@ butt.addEventListener('click', () => {
     console.log(d)
     circle.style.strokeDashoffset = (okr - rez);
     circle.style.stroke = c
-    createEl(c, valueDesk,from.value,to.value)
+    createTask(c, valueDesk,from.value,to.value)
 })
 
 function start() {
@@ -87,16 +87,29 @@ circle.addEventListener('mouseleave', ()=> {
     desk.classList.add('hide')
 })
 
-function createEl(color, name, from, to) {
-    const newTask = document.createElement('div');
+function createTask(color, name, from, to) {
+    let dd = document.querySelector('.list-desk_body__item')
+    if (!dd) {
+        const newTask = document.createElement('div');
     newTask.classList.add('list-desk_body__item')
-    newTask.style.border = `3px solid ${color}`;
     newTask.style.color = color
     newTask.innerHTML = `${from} - ${to}`
-    desk.append(newTask)
     const p = document.createElement('p')
     p.classList.add('name-task')
     p.innerHTML = name
     newTask.prepend(p)
+    desk.append(newTask)    
+    } else {
+        dd.remove()
+        const newTask = document.createElement('div');
+    newTask.classList.add('list-desk_body__item')
+    newTask.style.color = color
+    newTask.innerHTML = `${from} - ${to}`
+    const p = document.createElement('p')
+    p.classList.add('name-task')
+    p.innerHTML = name
+    newTask.prepend(p)
+    desk.append(newTask) 
+    }
     
 }
