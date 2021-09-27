@@ -20,18 +20,19 @@ butt.addEventListener('click', () => {
     let b = to.value.split(':');
     let c = color.value
     let valueDesk = btnNameTask.value
-    console.log(valueDesk)
     let hour = Math.abs(a[0] - b[0]);
     let minuts = forMinuts(a[1],b[1])
-    console.log(okr, c, minuts, a, circle.style.transform);
     let rez = izm(hour, minuts)
-    console.log(rez)
     let d = corner(a[0],a[1])
     circle.style.transform = `rotate(${-90 + d}deg)`
-    console.log(d)
     circle.style.strokeDashoffset = (okr - rez);
     circle.style.stroke = c
     createTask(c, valueDesk,from.value,to.value)
+    console.log(valueDesk)
+    console.log(okr, c, minuts, a, circle.style.transform);
+    console.log( 'То, что отнимим от окр -  ' + rez)
+    console.log('Угол - ' + d)
+    console.log(hour)
 })
 
 function start() {
@@ -48,15 +49,16 @@ function start() {
 }
  start()
 
-function izm (h, m) {
-    if(h <= 12) {
-        let deg = h* (okr / 12);
+function izm (h, m) { 
+    if (h <= 12) {    
+    let deg = h* (okr / 12);
         deg = deg + (m * (okr / 12) / 60)
         return deg;
-    } else { 
-        let deg = (h - 12)* (okr / 12);
+    } else if (h > 12) {
+        let deg = (h - 12) * (okr / 12);
         deg = deg + (m * (okr / 12) / 60)
-        return deg;
+        deg = okr - deg
+        return deg
     }
 }
 
@@ -79,13 +81,6 @@ function forMinuts (a,b) {
     }
 }
 
-circle.addEventListener('mouseover', ()=> {
-    desk.classList.remove('hide')
-})
-
-circle.addEventListener('mouseleave', ()=> {
-    desk.classList.add('hide')
-})
 
 function createTask(color, name, from, to) {
     let dd = document.querySelector('.list-desk_body__item')
@@ -113,3 +108,20 @@ function createTask(color, name, from, to) {
     }
     
 }
+
+
+//else { 
+ //   let deg = (h - 12) * (okr / 12);
+ //   deg = deg + (m * (okr / 12) / 60)
+ //   return deg;
+//}
+
+//function corner(h,m) {
+ //   if (h <= 11) {
+ //       return (h * 30) + (m * 0.5)
+ //   } else if (h == 12 || h == 0) {
+//        return (m * 0.5) 
+ //   } else {
+ //       return (h - 12) * 30 + (m * 0.5)
+ //   }
+//}
