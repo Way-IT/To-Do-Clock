@@ -28,11 +28,6 @@ butt.addEventListener('click', () => {
     circle.style.strokeDashoffset = (okr - rez);
     circle.style.stroke = c
     createTask(c, valueDesk,from.value,to.value)
-    console.log(valueDesk)
-    console.log(okr, c, minuts, a, circle.style.transform);
-    console.log( 'То, что отнимим от окр -  ' + rez)
-    console.log('Угол - ' + d)
-    console.log(hour)
 })
 
 function start() {
@@ -84,8 +79,7 @@ function forMinuts (a,b) {
 
 function createTask(color, name, from, to) {
     let dd = document.querySelector('.list-desk_body__item')
-    if (!dd) {
-        const newTask = document.createElement('div');
+    const newTask = document.createElement('div');
     newTask.classList.add('list-desk_body__item')
     newTask.style.color = color
     newTask.innerHTML = `${from} - ${to}`
@@ -93,35 +87,7 @@ function createTask(color, name, from, to) {
     p.classList.add('name-task')
     p.innerHTML = name
     newTask.prepend(p)
-    desk.append(newTask)    
-    } else {
-        dd.remove()
-        const newTask = document.createElement('div');
-    newTask.classList.add('list-desk_body__item')
-    newTask.style.color = color
-    newTask.innerHTML = `${from} - ${to}`
-    const p = document.createElement('p')
-    p.classList.add('name-task')
-    p.innerHTML = name
-    newTask.prepend(p)
-    desk.append(newTask) 
-    }
+    dd.innerHTML = newTask  
     
 }
 
-
-//else { 
- //   let deg = (h - 12) * (okr / 12);
- //   deg = deg + (m * (okr / 12) / 60)
- //   return deg;
-//}
-
-//function corner(h,m) {
- //   if (h <= 11) {
- //       return (h * 30) + (m * 0.5)
- //   } else if (h == 12 || h == 0) {
-//        return (m * 0.5) 
- //   } else {
- //       return (h - 12) * 30 + (m * 0.5)
- //   }
-//}
