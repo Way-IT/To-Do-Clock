@@ -79,15 +79,13 @@ function forMinuts (a,b) {
 
 function createTask(color, name, from, to) {
     let dd = document.querySelector('.list-desk_body__item')
-    const newTask = document.createElement('div');
-    newTask.classList.add('list-desk_body__item')
-    newTask.style.color = color
-    newTask.innerHTML = `${from} - ${to}`
+    dd.style.color = color
+    dd.innerHTML = `${from} - ${to}`
     const p = document.createElement('p')
     p.classList.add('name-task')
     p.innerHTML = name
-    newTask.prepend(p)
-    dd.innerHTML = newTask  
+    dd.prepend(p)
+    
     
 }
 
