@@ -96,7 +96,7 @@ align-items: center;
     
   .form {
       width: 350px;
-      height: 120px;
+      height: 80px;
       display: flex;
       flex-wrap: wrap;
       margin-right: 50px;
@@ -106,32 +106,13 @@ align-items: center;
       justify-content: space-between;
   }
 
-  input {
-      margin-right: 10px;
-  }
-
-  .butt {
-      margin-left: 20px;
-
-  }
-
   #but {
       padding: 5px 15px;
-  }
-
-  .form p {
-      position: absolute;
-      left: 250px;
-      top: 25px;
-  }
-  .form .to {
-      margin-left: -20px;
   }
 
     .hide {
         opacity: 0;
     }
-
 
   .list-desk_body {
     width: 330px;
@@ -141,9 +122,6 @@ align-items: center;
     border: 7px solid #0de906;
     box-shadow: 0 0 5px #0de906;
     transition-duration: 1s;
-  }
-  .form :nth-child(1) {
-      margin-right: 30px;
   }
 
   .list-desk_body__item {
@@ -161,3 +139,23 @@ align-items: center;
       margin-bottom: 0px;
       margin-top: -8px;
   }
+ 
+  form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+  }
+
+.label-from {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+#btnnametask {
+    margin-right: 90px;
+}
+#btn {
+    position: absolute;
+    top: 90px;
+    left: 16px;
+}

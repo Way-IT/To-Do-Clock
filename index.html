@@ -9,21 +9,24 @@
     </head>
     <body>
         <div class="form">
-            <label for="btnnametask">
-               Задача: <input id="btnnametask" type="text">
+            <form>
+            <label for="btnnametask" class="label-from">
+               Задача: </label>
+            <input id="btnnametask" type="text">
+            <label for="from" name="start" class="label-from">C:
+            </label> 
+            <input id="from" type="time"  required>
+            <label for="to" class="label-from">
+                По:
             </label>
-            <label for="from" name="start" >
-                С: <input id="from" type="time">
+            <input id="to" type="time"  required>
+            <label for="color" class="label-from"> 
+                Цвет:
             </label>
-            <label for="to" class="to">
-                По: <input id="to" type="time">
-            </label>
-            <label for="color"> 
-                <p>Цвет:</p> <input id="color" type="color">
-            </label>
+            <input id="color" type="color">
             <label class="setTimeBtn" for="btn">
-                <input id="btn" type="button" value="Применить">
-            </label>
+            </label><input id="btn" type="submit" value="Применить">
+        </form>
         </div>
         <div class="list-desk">
             <div class="list-desk_body hide">
