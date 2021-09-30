@@ -159,3 +159,13 @@ align-items: center;
     top: 90px;
     left: 16px;
 }
+
+.fuck {
+    stroke-width: 10;
+    fill: none;
+    transform-origin: center;
+    stroke: aqua;
+}
+.position {
+    position: absolute;
+}

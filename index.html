@@ -9,17 +9,17 @@
     </head>
     <body>
         <div class="form">
-            <form>
+            <form class="s" action="#">
             <label for="btnnametask" class="label-from">
                Задача: </label>
             <input id="btnnametask" type="text">
             <label for="from" name="start" class="label-from">C:
             </label> 
-            <input id="from" type="time"  required>
+            <input id="from" type="time"  required min="12:00">
             <label for="to" class="label-from">
                 По:
             </label>
-            <input id="to" type="time"  required>
+            <input id="to" type="time" max="23:59" required>
             <label for="color" class="label-from"> 
                 Цвет:
             </label>
@@ -40,7 +40,6 @@
                     <svg class="progress-ring" width="560" height="560">
                         <circle class="progress-ring__circle"  cx="280" cy="280" r="219"></circle>
                       </svg>
-                      
                 </div>
                 <div class="clock_hour">
                     <div class="hr" id="hr"></div>

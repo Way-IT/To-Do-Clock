@@ -13,21 +13,36 @@ const btnNameTask = document.querySelector('#btnnametask')
 const desk = document.querySelector('.list-desk_body')
 circle.style.strokeDasharray = `${okr} ${okr}`;
 circle.style.strokeDashoffset = okr;
-
+const form = document.querySelector('.s')
+const obolCir = document.querySelector('.obol')
+let timeMin = '12:00'
+let timeMax = '23:59'
+console.log(okr)
 
 butt.addEventListener('click', () => {
-    let a = from.value.split(':');
-    let b = to.value.split(':');
-    let c = color.value
-    let valueDesk = btnNameTask.value
-    let hour = Math.abs(a[0] - b[0]);
-    let minuts = forMinuts(a[1],b[1])
-    let rez = izm(hour, minuts)
-    let d = corner(a[0],a[1])
-    circle.style.transform = `rotate(${-90 + d}deg)`
-    circle.style.strokeDashoffset = (okr - rez);
-    circle.style.stroke = c
-    createTask(c, valueDesk,from.value,to.value)
+    let testMin = from.value
+    let testMax = to.value
+    if (testMin >= timeMin && testMax <= timeMax) {
+        let a = from.value.split(':');
+        let b = to.value.split(':');
+        let c = color.value
+        let valueDesk = btnNameTask.value
+        let hour = Math.abs(a[0] - b[0]);
+        let minuts = forMinuts(a[1],b[1])
+        let rez = izm(hour, minuts)
+        let d = corner(a[0],a[1])
+        circle.style.transform = `rotate(${-90 + d}deg)`
+        circle.style.strokeDashoffset = (okr - rez);
+        circle.style.stroke = c
+        createTask(c, valueDesk,from.value,to.value)
+        timeMin = to.value
+        setTimeout(() => {
+            from.setAttribute('min', timeMin)
+        }, 0); 
+        createTime(c,(okr - rez), d)
+        console.log(from)
+    }
+
 })
 
 function start() {
@@ -87,5 +102,25 @@ function createTask(color, name, from, to) {
     dd.prepend(p)
     
     
+}
+
+
+function createTime(col,size,cor) {
+let clone = document.querySelector('.progress-ring').cloneNode(true)
+clone.classList.add('position')
+let ell = clone.firstElementChild;
+ell.classList.add('fuck')
+ell.style.strokeDashoffset = size
+ell.style.stroke = col
+ell.style.transform = `rotate(${-90 + cor}deg)`
+ell.addEventListener('mouseover', ()=> {
+    desk.classList.remove('hide')
+})
+ell.addEventListener('mouseleave', ()=> {
+    desk.classList.add('hide')
+})
+ell.style.cursor = 'pointer'
+obolCir.append(clone)
+
 }
 
