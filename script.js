@@ -1,3 +1,4 @@
+
 const deg = 6;
 const hr = document.querySelector('#hr');
 const mn = document.querySelector('#min');
@@ -15,14 +16,18 @@ circle.style.strokeDasharray = `${okr} ${okr}`;
 circle.style.strokeDashoffset = okr;
 const form = document.querySelector('.s')
 const obolCir = document.querySelector('.obol')
+const btnShow = document.querySelector('#show-desk')
 let timeMin = '12:00'
 let timeMax = '23:59'
-console.log(okr)
-
+let x = 0
+let taskCount = 1
+let chosenColor = 0
+let collection = document.getElementsByClassName('progress-ring__circle')
 butt.addEventListener('click', () => {
     let testMin = from.value
     let testMax = to.value
-    if (testMin >= timeMin && testMax <= timeMax) {
+    if ((testMin >= timeMin) && (testMin < testMax || (testMax =='00:00')) && (testMax > '12:00' || testMax == '00:00') && (testMin != '00:00') && (btnNameTask.value.trim() != '')) {
+        console.log(`first - ${testMin}, last - ${testMax}`)
         let a = from.value.split(':');
         let b = to.value.split(':');
         let c = color.value
@@ -34,13 +39,14 @@ butt.addEventListener('click', () => {
         circle.style.transform = `rotate(${-90 + d}deg)`
         circle.style.strokeDashoffset = (okr - rez);
         circle.style.stroke = c
-        createTask(c, valueDesk,from.value,to.value)
         timeMin = to.value
         setTimeout(() => {
             from.setAttribute('min', timeMin)
         }, 0); 
         createTime(c,(okr - rez), d)
+        createTask(c, valueDesk,from.value,to.value)
         console.log(from)
+        from.value = to.value
     }
 
 })
@@ -93,14 +99,39 @@ function forMinuts (a,b) {
 
 
 function createTask(color, name, from, to) {
-    let dd = document.querySelector('.list-desk_body__item')
-    dd.style.color = color
-    dd.innerHTML = `${from} - ${to}`
+    let dd = document.querySelector('.list-desk_body')
+    let div = document.createElement('div')
+    let pp = `number-${taskCount}`
+    div.classList.add('list-desk_body__item')
+    div.classList.add(pp)
+    div.style.color = color
+    div.innerHTML = `${from} - ${to}`
     const p = document.createElement('p')
     p.classList.add('name-task')
     p.innerHTML = name
-    dd.prepend(p)
-    
+    div.style.borderBottom = `2px solid ${color}`
+    div.addEventListener('mouseover', (event)=> {
+        event.target.style.cursor = 'pointer'
+        let b = '.' + event.target.classList[1]
+        let a = document.querySelector('.obol').querySelector(b)
+        for (let elem of collection) {
+            elem.classList.add('opa')
+            if (elem.classList.contains(event.target.classList[1])) {
+                elem.classList.remove('opa')
+            } 
+        } 
+
+    })
+    div.addEventListener('mouseleave', (event)=> {
+        let b = '.' + event.target.classList[1]
+        let a = document.querySelector('.obol').querySelector(b)
+        for (let elem of collection) {
+            elem.classList.remove('opa')
+        }
+    })
+    div.prepend(p);
+    dd.append(div);
+    taskCount++
     
 }
 
@@ -109,18 +140,27 @@ function createTime(col,size,cor) {
 let clone = document.querySelector('.progress-ring').cloneNode(true)
 clone.classList.add('position')
 let ell = clone.firstElementChild;
+let yy = `number-${taskCount}`
 ell.classList.add('fuck')
+ell.classList.add(yy)
 ell.style.strokeDashoffset = size
 ell.style.stroke = col
 ell.style.transform = `rotate(${-90 + cor}deg)`
-ell.addEventListener('mouseover', ()=> {
-    desk.classList.remove('hide')
-})
-ell.addEventListener('mouseleave', ()=> {
-    desk.classList.add('hide')
-})
 ell.style.cursor = 'pointer'
 obolCir.append(clone)
-
 }
+
+btnShow.addEventListener('click', () => {
+    if (btnShow.value === 'Hide') {
+    desk.style.display = 'none';
+    btnShow.value = 'Show'
+    btnShow.style.boxShadow = "0 0 5px #0de906"
+    btnShow.style.border = '1px solid rgb(13, 233, 5)'
+    } else if (btnShow.value === 'Show') {
+        desk.style.display = 'block';
+    btnShow.value = 'Hide'
+    btnShow.style.boxShadow = '0 0 0 '
+    btnShow.style.border = ''
+    }
+})
 

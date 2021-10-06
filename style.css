@@ -4,7 +4,12 @@ body {
     align-items: center;
     min-height: 100vh;
     background:lightslategray;
-    min-width: 1700px
+    min-width: 1700px;
+    flex-direction: column;
+}
+
+main {
+    margin-left: 200px;
 }
 
 .clock {
@@ -114,27 +119,47 @@ align-items: center;
         opacity: 0;
     }
 
+   .list-desk {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       max-height: 500px;
+       position: relative;
+   } 
+
   .list-desk_body {
+    position: absolute;
     width: 330px;
-    height: auto;
-    margin-left: -400px;
+    max-height: 500px;
+    margin-left: -425px;
     background-color: white;
     border: 7px solid #0de906;
     box-shadow: 0 0 5px #0de906;
-    transition-duration: 1s;
+    transition: opacity 1s ease-in;
+    overflow: auto;
+    display: none;
   }
 
   .list-desk_body__item {
-      width: 300px;
+      width: 310px;
       height: 60px;
-      margin: 10px auto;
+      margin: 0px auto;
       background-color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       font-size: 20px;
+      padding-top: 5px;
   }
+
+  #show-desk {
+    position: absolute;
+    top: -258px;
+    left: -28px;
+    cursor: pointer;
+  }
+
   .name-task {
       margin-bottom: 0px;
       margin-top: -8px;
@@ -169,3 +194,17 @@ align-items: center;
 .position {
     position: absolute;
 }
+
+
+
+.container {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.opa {
+    opacity: 0.2;
+}
+
