@@ -3,6 +3,9 @@ const deg = 6;
 const hr = document.querySelector('#hr');
 const mn = document.querySelector('#min');
 const sc = document.querySelector('#sec');
+const hr1 = document.querySelector('#hr-1');
+const mn1 = document.querySelector('#min-1')
+const sc1 = document.querySelector('#sec-1')
 const from = document.querySelector('#from');
 const to = document.querySelector('#to');
 const color = document.querySelector('#color');
@@ -23,11 +26,13 @@ let x = 0
 let taskCount = 1
 let chosenColor = 0
 let collection = document.getElementsByClassName('progress-ring__circle')
+let obolCirTwo = document.querySelector('.obol-1')
+
 butt.addEventListener('click', () => {
     let testMin = from.value
     let testMax = to.value
-    if ((testMin >= timeMin) && (testMin < testMax || (testMax =='00:00')) && (testMax > '12:00' || testMax == '00:00') && (testMin != '00:00') && (btnNameTask.value.trim() != '')) {
-        console.log(`first - ${testMin}, last - ${testMax}`)
+
+    if (testMin < "12:00" && testMin >= "00:00" && testMax <= "12:00" && (btnNameTask.value.trim() != '')) {
         let a = from.value.split(':');
         let b = to.value.split(':');
         let c = color.value
@@ -36,16 +41,49 @@ butt.addEventListener('click', () => {
         let minuts = forMinuts(a[1],b[1])
         let rez = izm(hour, minuts)
         let d = corner(a[0],a[1])
+        timeMin = to.value
+        createTime(c,(okr - rez), d, obolCirTwo)
+        createTask(c, valueDesk,from.value,to.value)
+        from.value = to.value
+
+    }
+
+    if (testMin > testMax && testMax < "12:00" && testMax > '00:00' && (btnNameTask.value.trim() != '') ) {
+        let a = from.value.split(':');
+        let b = to.value.split(':');
+        let c = color.value
+        let valueDesk = btnNameTask.value
+        let hour = Math.abs(a[0] - '00');
+        let minuts = forMinuts(a[1],'00')
+        let rez = izm(hour, minuts)
+        let d = corner(a[0],a[1])
+        createTime(c,(okr - rez), d, obolCir)
+        hour = Math.abs('00' - b[0])
+        minuts = forMinuts('00', b[1])
+        rez = izm(hour,minuts)
+        d = corner (0,0)
+        createTime(c,(okr - rez), d, obolCirTwo)
+        createTask(c, valueDesk,from.value,to.value)
+        from.value = to.value
+
+    }
+    if ((testMin >= timeMin) && (testMin < testMax || (testMax =='00:00')) && (testMax > '12:00' || testMax == '00:00') && (testMin != '00:00') && (btnNameTask.value.trim() != '')) {
+        console.log(Math.abs('00' - '22'))
+
+        let a = from.value.split(':');
+        let b = to.value.split(':');
+        let c = color.value
+        let valueDesk = btnNameTask.value
+        let hour = Math.abs(a[0] - b[0]);
+        let minuts = forMinuts(a[1],b[1])
+        let rez = izm(hour, minuts) 
+        let d = corner(a[0],a[1])
         circle.style.transform = `rotate(${-90 + d}deg)`
         circle.style.strokeDashoffset = (okr - rez);
         circle.style.stroke = c
         timeMin = to.value
-        setTimeout(() => {
-            from.setAttribute('min', timeMin)
-        }, 0); 
-        createTime(c,(okr - rez), d)
+        createTime(c,(okr - rez), d, obolCir)
         createTask(c, valueDesk,from.value,to.value)
-        console.log(from)
         from.value = to.value
     }
 
@@ -59,7 +97,10 @@ function start() {
         let ss = day.getSeconds() * deg;
         hr.style.transform = `rotateZ(${(hh) + (mm/12)}deg)`;
         min.style.transform = `rotateZ(${mm}deg)`;
-        sc.style.transform = `rotateZ(${ss}deg)`
+        sc.style.transform = `rotateZ(${ss}deg)`;
+        hr1.style.transform = `rotateZ(${(hh) + (mm/12)}deg)`;
+        mn1.style.transform = `rotateZ(${mm}deg)`;
+        sc1.style.transform = `rotateZ(${ss}deg)`;
     } );
     
 }
@@ -72,7 +113,7 @@ function izm (h, m) {
         return deg;
     } else if (h > 12) {
         let deg = (h - 12) * (okr / 12);
-        deg = deg + (m * (okr / 12) / 60)
+        deg = deg + (Math.abs(m) * (okr / 12) / 60)
         deg = okr - deg
         return deg
     }
@@ -136,7 +177,7 @@ function createTask(color, name, from, to) {
 }
 
 
-function createTime(col,size,cor) {
+function createTime(col,size,cor, place) {
 let clone = document.querySelector('.progress-ring').cloneNode(true)
 clone.classList.add('position')
 let ell = clone.firstElementChild;
@@ -147,7 +188,7 @@ ell.style.strokeDashoffset = size
 ell.style.stroke = col
 ell.style.transform = `rotate(${-90 + cor}deg)`
 ell.style.cursor = 'pointer'
-obolCir.append(clone)
+place.append(clone)
 }
 
 btnShow.addEventListener('click', () => {
