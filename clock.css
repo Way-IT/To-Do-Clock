@@ -1,3 +1,4 @@
+
 body {
     display: flex;
     justify-content: center;
@@ -99,96 +100,7 @@ align-items: center;
     fill: none;
     transform-origin: center;
   }
-    
-  .form {
-      width: 350px;
-      height: 80px;
-      display: flex;
-      flex-wrap: wrap;
-      margin-right: -23px;
-      margin-bottom: 700px;
-      margin-left: -120px;
-      position: relative;
-      justify-content: space-between;
-  }
-
-  #but {
-      padding: 5px 15px;
-  }
-
-    .hide {
-        opacity: 0;
-    }
-
-   .list-desk {
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       max-height: 500px;
-       position: relative;
-       margin-left: 65px;
-       margin-right: -100px;
-   } 
-
-  .list-desk_body {
-    position: absolute;
-    width: 330px;
-    max-height: 500px;
-    margin-left: -425px;
-    background-color: white;
-    border: 7px solid #0de906;
-    box-shadow: 0 0 5px #0de906;
-    transition: opacity 1s ease-in;
-    overflow: auto;
-    display: none;
-  }
-
-  .list-desk_body__item {
-      width: 310px;
-      height: 60px;
-      margin: 0px auto;
-      background-color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      font-size: 20px;
-      padding-top: 5px;
-  }
-
-  #show-desk {
-    position: absolute;
-    top: -258px;
-    left: -28px;
-    cursor: pointer;
-  }
-
-  .name-task {
-      margin-bottom: 0px;
-      margin-top: -8px;
-  }
- 
-  form {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-  }
-
-.label-from {
-    margin-right: 10px;
-    margin-left: 10px;
-}
-#btnnametask {
-    margin-right: 90px;
-}
-#btn {
-    position: absolute;
-    top: 90px;
-    left: 16px;
-}
-
-.fuck {
+  .fuck {
     stroke-width: 10;
     fill: none;
     transform-origin: center;
@@ -209,4 +121,3 @@ align-items: center;
 .opa {
     opacity: 0.2;
 }
-
