@@ -1,122 +1,155 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background:lightslategray;
-    min-width: 1700px;
-    flex-direction: column;
-
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
+  background: lightslategray;
+  min-width: 1700px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-main {
-    margin-left: 150px;
+body .container {
+  margin-top: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.clock {
-    width: 500px;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url(kisspng-wall-clocks-geared-clock-pendulum-clock-clock-face-5c0add2cf40241.2012121415442158529995.png) 50% no-repeat;
-    background-size: cover;
-    border-radius: 50%;
-    z-index: 4;
-    background-color:lightslategray;
-    ;
+body .container main {
+  margin-left: 150px;
 }
 
-.clock .clock_hour,
-.clock .clock_min,
-.clock .clock_sec {
-    position: absolute;
-    z-index: 3;
+body .container .clock {
+  width: 500px;
+  height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: url(kisspng-wall-clocks-geared-clock-pendulum-clock-clock-face-5c0add2cf40241.2012121415442158529995.png) 50% no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  z-index: 4;
+  background-color: lightslategray;
 }
 
-.clock .clock_hour, .hr {
-    width: 160px;
-    height: 210px;
-}
-.clock .clock_min, .min {
-    width: 190px;
-    height: 290px;
-}
-.clock .clock_sec, .sec {
-    width: 230px;
-    height: 320px;
+body .container .clock .clock_hour,
+body .container .clock .clock_min,
+body .container .clock .clock_sec {
+  position: absolute;
+  z-index: 3;
 }
 
-.hr, .min, .sec {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    border-radius: 50%;
-    z-index: 3;
+body .container .clock .clock_hour, body .container .clock .hr {
+  width: 160px;
+  height: 210px;
+}
+
+body .container .clock .clock_min, body .container .clock .min {
+  width: 190px;
+  height: 290px;
+}
+
+body .container .clock .clock_sec, body .container .clock .sec {
+  width: 230px;
+  height: 320px;
+}
+
+body .container .clock .hr, body .container .clock .min, body .container .clock .sec {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+body .container .clock .obol, body .container .clock .obol-1 {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .container .clock .progress-ring__circle {
+  stroke-width: 10;
+  stroke: #0de906;
+  fill: none;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+body .container .clock .opa {
+  opacity: 0.2;
+}
+
+body .container .clock .fuck {
+  stroke-width: 10;
+  fill: none;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+body .container .clock .position {
+  position: absolute;
 }
 
 .hr::before {
-    content: "";
-    position: absolute;
-    width: 11px;
-    height: 110px;
-    background-color: rgb(8, 8, 8);
-    border-radius: 50% 50% 0 0;
-    z-index: 10;
+  content: "";
+  position: absolute;
+  width: 11px;
+  height: 110px;
+  background-color: #080808;
+  border-radius: 50% 50% 0 0;
+  z-index: 10;
 }
 
 .min::before {
-    content: "";
-    position: absolute;
-    width: 5px;
-    height: 150px;
-    background-color: black;
-    border-radius: 50% 50% 0 0;
-    z-index: 11;
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 150px;
+  background-color: black;
+  border-radius: 50% 50% 0 0;
+  z-index: 11;
 }
 
 .sec::before {
-    content: "";
-    position: absolute;
-    width: 3px;
-    height: 180px;
-    background-color: rgb(175, 3, 3);
-    border-radius: 50% 50% 0 0;
-    z-index: 9;
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 180px;
+  background-color: #af0303;
+  border-radius: 50% 50% 0 0;
+  z-index: 9;
 }
-
-.obol, .obol-1 {
-position: relative;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-
-.progress-ring__circle {
-    stroke-width: 10;
-    stroke: #0de906;
-    fill: none;
-    transform-origin: center;
-  }
-  .fuck {
-    stroke-width: 10;
-    fill: none;
-    transform-origin: center;
-}
-.position {
-    position: absolute;
-}
-
-
-
-.container {
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.opa {
-    opacity: 0.2;
-}
+/*# sourceMappingURL=clock.css.map */
