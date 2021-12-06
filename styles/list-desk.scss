@@ -16,7 +16,6 @@ $gr:#0de906;
     width: 330px;
     max-height: 500px;
     margin-left: -425px;
-    background-color: white;
     border: 7px solid $gr;
     box-shadow: 0 0 5px $gr;
     transition: opacity 1s ease-in;
@@ -24,7 +23,7 @@ $gr:#0de906;
     display: none;
   }
   .list-desk_body__item {
-    width: 310px;
+    width: 330px;
     height: 60px;
     margin: 0px auto;
     background-color: white;

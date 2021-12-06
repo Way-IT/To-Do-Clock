@@ -1,4 +1,3 @@
-
 .hide {
   opacity: 0;
 }
@@ -24,7 +23,6 @@
   width: 330px;
   max-height: 500px;
   margin-left: -425px;
-  background-color: white;
   border: 7px solid #0de906;
   -webkit-box-shadow: 0 0 5px #0de906;
           box-shadow: 0 0 5px #0de906;
@@ -35,7 +33,7 @@
 }
 
 .list-desk .list-desk_body__item {
-  width: 310px;
+  width: 330px;
   height: 60px;
   margin: 0px auto;
   background-color: white;
